@@ -5,10 +5,10 @@ import Webcam from "react-webcam";
 import {Button} from "@/components/ui/button"
 
 interface WebcamComponentProps {
-  onCapture?: (imageSrc: string | null) => void;
+  onCapture: (imageSrc: string | null) => void; //callback to pass captured image to parent
 }
 
-const WebcamComponent = ({ }: WebcamComponentProps) => {
+const WebcamComponent = ({ onCapture }: WebcamComponentProps) => {
   const webcamRef = useRef<Webcam>(null);
   const [imgSrc, setImgSrc] = useState<string | null>(null);
 
@@ -17,6 +17,7 @@ const WebcamComponent = ({ }: WebcamComponentProps) => {
     height: 500,
     facingMode: "user", 
   };
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -39,7 +40,7 @@ const WebcamComponent = ({ }: WebcamComponentProps) => {
   const capture = () => {
     if (webcamRef.current) {
       const imageSrc = webcamRef.current.getScreenshot();
-      setImgSrc(imageSrc);
+      onCapture(imageSrc);
     }
   };
 
@@ -56,7 +57,7 @@ const WebcamComponent = ({ }: WebcamComponentProps) => {
         className="object-cover w-full h-full"
         mirrored={true}  
       />
-      <Button className="default text-black text-2xl">Scan Item</Button>
+      <Button  onClick={capture} className="default text-black text-2xl">Scan Item</Button>
     </div>
   );
 };
