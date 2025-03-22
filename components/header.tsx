@@ -1,45 +1,91 @@
+'use client'
+
 import Link from "next/link"
 import { ShoppingCart } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useAuthState } from "react-firebase-hooks/auth"
+import {auth} from "@/app/firebase/firebaseConfig"
+import { signOut } from "firebase/auth"
 
 export default function Header() {
-  return (
-    <header className="bg-[#c8c2f0] py-3 px-6 flex items-center justify-between">
-      <div className="flex items-center">
-        <Link href="/" className="text-2xl font-bold flex items-center">
-          SMARTCART <ShoppingCart className="ml-2 h-6 w-6" />
-        </Link>
-      </div>
 
-      <nav className="hidden md:flex items-center space-x-8">
-        <Link href="/" className="text-black hover:text-gray-700">
-          Home
-        </Link>
-        <Link href="/ai" className="text-black hover:text-gray-700">
-          AI
-        </Link>
-        <Link href="/about" className="text-black hover:text-gray-700">
-          About Us
-        </Link>
-        <Link href="/mission" className="text-black hover:text-gray-700">
-          Mission
-        </Link>
-        <Link href="/help" className="text-black hover:text-gray-700">
-          Help
-        </Link>
-        <Link href="/checkout" className="text-black hover:text-gray-700">
-          Checkout
-        </Link>
-      </nav>
+  const [user] = useAuthState(auth)
 
-      <div className="flex items-center space-x-4">
-        <Link href="/login" className="text-black hover:text-gray-700">
-          Log In
-        </Link>
-        <Button className="bg-[#5c5a7c] hover:bg-[#4a4865]">SIGN UP</Button>
-        
-      </div>
-    </header>
-  )
+  if (!user) {
+    return (
+      <header className="bg-[#c8c2f0] py-3 px-6 flex items-center justify-between">
+        <div className="flex items-center">
+          <Link href="/" className="text-2xl font-bold flex items-center">
+            SMARTCART <ShoppingCart className="ml-2 h-6 w-6" />
+          </Link>
+        </div>
+
+        <nav className="hidden md:flex items-center space-x-8">
+          <Link href="/" className="text-black hover:text-gray-700">
+            Home
+          </Link>
+          <Link href="/ai" className="text-black hover:text-gray-700">
+            AI
+          </Link>
+          <Link href="/about" className="text-black hover:text-gray-700">
+            About Us
+          </Link>
+          <Link href="/mission" className="text-black hover:text-gray-700">
+            Mission
+          </Link>
+          <Link href="/help" className="text-black hover:text-gray-700">
+            Help
+          </Link>
+          <Link href="/checkout" className="text-black hover:text-gray-700">
+            Checkout
+          </Link>
+        </nav>
+
+        <div className="flex items-center space-x-4">
+          <Link href="/login" className="text-black hover:text-gray-700">
+            Log In
+          </Link>
+          <Link href={"/signup"}>
+            <Button className="bg-[#5c5a7c] hover:bg-[#4a4865]">SIGN UP</Button>
+          </Link>
+        </div>
+      </header>
+    )
+  } else {
+    return (
+      <header className="bg-[#c8c2f0] py-3 px-6 flex items-center justify-between">
+        <div className="flex items-center">
+          <Link href="/" className="text-2xl font-bold flex items-center">
+            SMARTCART <ShoppingCart className="ml-2 h-6 w-6" />
+          </Link>
+        </div>
+
+        <nav className="hidden md:flex items-center space-x-8">
+          <Link href="/" className="text-black hover:text-gray-700">
+            Home
+          </Link>
+          <Link href="/ai" className="text-black hover:text-gray-700">
+            AI
+          </Link>
+          <Link href="/about" className="text-black hover:text-gray-700">
+            About Us
+          </Link>
+          <Link href="/mission" className="text-black hover:text-gray-700">
+            Mission
+          </Link>
+          <Link href="/help" className="text-black hover:text-gray-700">
+            Help
+          </Link>
+          <Link href="/checkout" className="text-black hover:text-gray-700">
+            Checkout
+          </Link>
+        </nav>
+
+        <div className="flex items-center space-x-4">
+            <Button variant="outline" onClick={() =>signOut(auth)} className="hover:bg-[#4a4865]">Log Out</Button>
+        </div>
+      </header>
+    )
+  }
 }
 
