@@ -36,8 +36,10 @@ export default function Header() {
         <Link href="/login" className="text-black hover:text-gray-700">
           Log In
         </Link>
-        <Button className="bg-[#5c5a7c] hover:bg-[#4a4865]">SIGN UP</Button>
-        
+
+        <Link href={"/signup"}>
+          <Button className="bg-[#5c5a7c] hover:bg-[#4a4865]">SIGN UP</Button>
+        </Link>
       </div>
     </header>
   )
