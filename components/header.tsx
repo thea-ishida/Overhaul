@@ -37,6 +37,7 @@ export default function Header() {
           Log In
         </Link>
         <Button className="bg-[#5c5a7c] hover:bg-[#4a4865]">SIGN UP</Button>
+        
       </div>
     </header>
   )

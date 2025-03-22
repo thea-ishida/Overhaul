@@ -1,8 +1,10 @@
 import Image from "next/image"
 import { Bot, Webcam } from "lucide-react"
 import WebcamComponent from "@/components/ui/webcam"
+import { Button } from "@/components/ui/button"
 
 export default function Checkout() {
+  
   return (
     <div className="min-h-screen bg-white">
       <div className="grid md:grid-cols-2 gap-0">
@@ -16,7 +18,7 @@ export default function Checkout() {
               height={500}
               className="object-cover w-full h-full"
             />
-            <div className="absolute top-4 left-8 bg-white/20 px-4 py-1 rounded-full text-white">Scanner</div>
+            <div className="absolute top-2 left-4 bg-foreground/20 px-4 py-1 rounded-full text-white">Scanner</div>
           </div>
         </div>
 

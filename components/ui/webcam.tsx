@@ -2,12 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import Webcam from "react-webcam";
+import {Button} from "@/components/ui/button"
 
 interface WebcamComponentProps {
   onCapture?: (imageSrc: string | null) => void;
 }
 
-const WebcamComponent = ({ onCapture }: WebcamComponentProps) => {
+const WebcamComponent = ({ }: WebcamComponentProps) => {
   const webcamRef = useRef<Webcam>(null);
   const [imgSrc, setImgSrc] = useState<string | null>(null);
 
@@ -39,14 +40,12 @@ const WebcamComponent = ({ onCapture }: WebcamComponentProps) => {
     if (webcamRef.current) {
       const imageSrc = webcamRef.current.getScreenshot();
       setImgSrc(imageSrc);
-      if (onCapture) {
-        onCapture(imageSrc); // Pass the captured image to the parent component
-      }
     }
   };
 
   return (
-    <div className="relative h-full">
+    <div className="relative h-full flex flex-col">
+      
       <Webcam
         audio={false}
         ref={webcamRef}
@@ -55,10 +54,13 @@ const WebcamComponent = ({ onCapture }: WebcamComponentProps) => {
         screenshotFormat="image/jpeg"
         videoConstraints={videoConstraints}
         className="object-cover w-full h-full"
-        mirrored={true}
+        mirrored={true}  
       />
+      <Button className="default text-black text-2xl">Scan Item</Button>
     </div>
   );
 };
+
+
 
 export default WebcamComponent;
