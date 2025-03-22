@@ -13,6 +13,12 @@ npm install --force
 npm audit fix --force
 ```
 
+```sh
+npm install firebase --legacy-peer-deps
+npm install dotenv --legacy-peer-deps
+npm install react-firebase-hooks --legacy-peer-deps
+```
+
 You can then run the website locally with:
 
 ```sh
