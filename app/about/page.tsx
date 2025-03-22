@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { ShoppingCart } from "lucide-react"
 import { Bot } from "lucide-react"
 import Link from "next/link"
+import TextToSpeech from "../voice/components/TextToSpeech";  //import tts component
 
 export default function About() {
     return (
@@ -44,6 +45,9 @@ export default function About() {
             </div>
         </div>
       </section>
+
+      {/* Add the floating TTS button at the bottom */}
+      <TextToSpeech fileName="about-us.txt" />
       </div>
     )
 }
