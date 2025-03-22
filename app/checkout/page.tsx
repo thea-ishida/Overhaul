@@ -1,13 +1,16 @@
 import Image from "next/image"
-import { Bot } from "lucide-react"
+import { Bot, Webcam } from "lucide-react"
+import WebcamComponent from "@/components/ui/webcam"
+import { Button } from "@/components/ui/button"
 
 export default function Checkout() {
+  
   return (
     <div className="min-h-screen bg-white">
       <div className="grid md:grid-cols-2 gap-0">
         <div className="bg-[#5c5a7c] p-6 relative">
-          <div className="absolute top-4 left-8 bg-white/20 px-4 py-1 rounded-full text-white">Scanner</div>
           <div className="h-[500px] w-full relative rounded-lg overflow-hidden">
+          <WebcamComponent />
             <Image
               src="/placeholder.svg?height=500&width=400"
               alt="Banana bundle scan"
@@ -15,6 +18,7 @@ export default function Checkout() {
               height={500}
               className="object-cover w-full h-full"
             />
+            <div className="absolute top-2 left-4 bg-foreground/20 px-4 py-1 rounded-full text-white">Scanner</div>
           </div>
         </div>
 
