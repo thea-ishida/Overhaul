@@ -50,7 +50,6 @@ export default function Checkout() {
             <h2 className="text-2xl font-semibold mt-8">Like Bananas? You might also like:</h2>
             <div className="overflow-x-auto py-4">
             <div className="flex space-x-4">
-              {/* Add your horizontally scrollable content here */}
               <div className="min-w-[300px] bg-gray-200 p-4 rounded-lg">Oranges</div>
               <div className="min-w-[300px] bg-gray-200 p-4 rounded-lg">Grapefruits</div>
               <div className="min-w-[300px] bg-gray-200 p-4 rounded-lg">Plantain Chips</div>
