@@ -47,6 +47,16 @@ export default function Checkout() {
                 <p className="text-lg">Hi! How can I help you today?</p>
               </div>
             </div>
+            <h2 className="text-2xl font-semibold mt-8">Like Bananas? You might also like:</h2>
+            <div className="overflow-x-auto py-4">
+            <div className="flex space-x-4">
+              <div className="min-w-[300px] bg-gray-200 p-4 rounded-lg">Oranges</div>
+              <div className="min-w-[300px] bg-gray-200 p-4 rounded-lg">Grapefruits</div>
+              <div className="min-w-[300px] bg-gray-200 p-4 rounded-lg">Plantain Chips</div>
+              <div className="min-w-[300px] bg-gray-200 p-4 rounded-lg">Richard's Organic Banana Yogurt</div>
+              <div className="min-w-[300px] bg-gray-200 p-4 rounded-lg">Freeze-Dried Gros Michel</div>
+            </div>
+          </div>
           </div>
         </div>
       </div>
