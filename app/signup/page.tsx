@@ -9,47 +9,31 @@ import Link from "next/link"
 // import the auth details
 import {auth} from "../firebase/firebaseConfig"
 import {GoogleAuthProvider, signInWithPopup} from "firebase/auth"
-import { redirect } from "next/dist/server/api-utils"
-import {useState} from "react"
+import {useState} from 'react'
 
-import {useSignInWithEmailAndPassword} from 'react-firebase-hooks/auth'
+import {useCreateUserWithEmailAndPassword} from 'react-firebase-hooks/auth'
 
-import {useRouter} from 'next/navigation'
+export default function Signup() {
 
-export default function Login() {
-  
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
+    const [password2, setPassword2] = useState('')
+  
     const handleGoogle = (e: MouseEvent<HTMLButtonElement>) => {
       const provider = new GoogleAuthProvider();
 
-      try {
-        const res =  signInWithPopup(auth, provider)
-        console.log({res})
-        setEmail('')
-        setPassword('')
-
-        router.push('/')
-
-      } catch (e){
-        console.error(e)
-      }
+      return signInWithPopup(auth, provider)
     }
 
-    const router = useRouter()
+    const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
 
-    const [signInUserWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
-
-    const handleLogin = async (e:MouseEvent<HTMLButtonElement>) => {
+    const handleSignup = async () => {
       try {
-        const res = await signInUserWithEmailAndPassword(email, password)
+        const res = await createUserWithEmailAndPassword(email, password)
         console.log({res})
         setEmail('')
         setPassword('')
-
-        router.push('/')
-
+        setPassword2('')
       } catch (e){
         console.error(e)
       }
@@ -61,8 +45,7 @@ export default function Login() {
         <div className="container mx-auto px-4 py-16 md:py-24">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
-              <h1 className="text-6xl font-white font-bold tracking-tight text-white">Log In</h1>
-              <h2 className="text-3xl font-medium">Shop Smarter, Checkout Faster!</h2>
+              <h1 className="text-6xl font-white font-bold tracking-tight text-white">Sign up!</h1>
                 <div className="flex-col">
                     <div className="my-2">
                         <input 
@@ -78,18 +61,20 @@ export default function Login() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}></input>
                     </div>
-                    <Button onClick={handleLogin}>Log in</Button>
+                    <div className="my-2">
+                        <input 
+                        type="password" 
+                        placeholder="re-type password"
+                        value={password2}
+                        onChange={(e) => setPassword2(e.target.value)}></input>
+                    </div>
+                    <Button onClick={handleSignup} className="bg-[#5c5a7c] hover:bg-[#4a4865]">
+                      Create Account
+                      </Button>
                 </div>
+
                 <div>
-                    <p>
-                        Don't have an account? Register today!
-                    </p>
-                    <Link href={"/signup"}>
-                      <Button className="bg-[#5c5a7c] hover:bg-[#4a4865]">SIGN UP</Button>
-                    </Link>
-                </div>
-                <div>
-                  <button onClick={handleGoogle}>Sign in with google</button>
+                  <button onClick={handleGoogle}>Sign up with google</button>
                 </div>
             </div>
 
