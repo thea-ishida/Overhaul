@@ -31,7 +31,6 @@ export default function Login() {
         setPassword('')
 
         router.push('/')
-
       } catch (e){
         console.error(e)
       }
