@@ -18,7 +18,7 @@ export default function Home() {
               </p>
               <Button className="bg-[#5c5a7c] hover:bg-[#4a4865] text-white px-8 py-6 text-lg">Download</Button>
               <Link href="/checkout" className="inline-block mt-4">
-                <Button variant="outline" className="border-[#5c5a7c] text-[#5c5a7c]">
+                <Button variant="outline" className="border-[#5c5a7c] py-6 text-[#5c5a7c]">
                   Go to Checkout
                 </Button>
               </Link>
