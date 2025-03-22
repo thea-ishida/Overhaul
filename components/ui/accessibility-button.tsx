@@ -3,9 +3,15 @@ import { useState } from "react";
 
 export default function AccessibilityButton() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLargeFont, setIsLargeFont] = useState(false);
 
   const toggleAccessibilityOptions = () => {
     setIsOpen(!isOpen);
+  };
+
+  const toggleFontSize = () => {
+    setIsLargeFont(!isLargeFont);
+    document.body.classList.toggle("text-larger", !isLargeFont);
   };
 
   return (
@@ -15,7 +21,9 @@ export default function AccessibilityButton() {
           <p>
             <b>Accessibility Options</b>
           </p>
-          <button className="block w-full text-left p-2 bg-purple-100  hover:bg-blue-300 rounded-tl-lg rounded-tr-lg ">Item 1</button>
+          <button onClick={toggleFontSize} className="block w-full text-left p-2 bg-purple-100  hover:bg-blue-300 rounded-tl-lg rounded-tr-lg ">
+            {isLargeFont ? "Normal Font" : "Large Font"}
+          </button>
           <button className="block w-full text-left p-2 bg-purple-100 hover:bg-blue-300 ">Item 2</button>
           <button className="block w-full text-left p-2 bg-purple-100 hover:bg-blue-300 ">Item 3</button>
           <button className="block w-full text-left p-2 bg-purple-100 rounded-bl-lg rounded-br-lg hover:bg-blue-300  ">Item 4</button>
