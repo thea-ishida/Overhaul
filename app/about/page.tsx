@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { ShoppingCart } from "lucide-react"
 import { Bot } from "lucide-react"
 import Link from "next/link"
-import TextToSpeech from "../voice/components/TextToSpeech";  //import tts component
+import TextToSpeech from "../voice/TextToSpeech";  //import tts component
 
 export default function About() {
     return (

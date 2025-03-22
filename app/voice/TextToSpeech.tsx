@@ -66,7 +66,7 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({ fileName }) => {
   return (
     <div className="fixed bottom-6 right-6 z-50 cursor-pointer">
       <div className="relative w-20 h-20 flex items-center justify-center">
-        {/* ✅ Only show pulsing rings if speaking */}
+        {/* Only show pulsing rings if speaking */}
         {isSpeaking && (
           <>
             <span className="absolute w-full h-full rounded-full bg-blue-500 opacity-50 animate-ping"></span>
