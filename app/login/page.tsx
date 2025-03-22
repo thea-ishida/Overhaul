@@ -21,11 +21,11 @@ export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const handleGoogle = (e: MouseEvent<HTMLButtonElement>) => {
+    const handleGoogle = async (e: MouseEvent<HTMLButtonElement>) => {
       const provider = new GoogleAuthProvider();
 
       try {
-        const res =  signInWithPopup(auth, provider)
+        const res = await signInWithPopup(auth, provider)
         console.log({res})
         setEmail('')
         setPassword('')
