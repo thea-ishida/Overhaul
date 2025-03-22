@@ -1,9 +1,17 @@
+'use client'
+
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ShoppingCart } from "lucide-react"
 import Link from "next/link"
 
+import {useAuthState} from 'react-firebase-hooks/auth'
+import {auth} from '@/app/firebase/firebaseConfig'
+
 export default function Home() {
+
+  const [user] = useAuthState(auth)
+
   return (
     <div className="min-h-screen">
       <section className="relative overflow-hidden bg-gradient-to-br from-[#c8c2f0] via-[#8a82c5] to-[#5c5a7c]">
