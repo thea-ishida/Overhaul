@@ -13,17 +13,14 @@ import {useState} from 'react'
 
 import {useCreateUserWithEmailAndPassword} from 'react-firebase-hooks/auth'
 
+import {useRouter} from 'next/navigation'
+
 export default function Signup() {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [password2, setPassword2] = useState('')
   
-    const handleGoogle = (e: MouseEvent<HTMLButtonElement>) => {
-      const provider = new GoogleAuthProvider();
-
-      return signInWithPopup(auth, provider)
-    }
+    const router = useRouter()
 
     const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
 
@@ -33,7 +30,7 @@ export default function Signup() {
         console.log({res})
         setEmail('')
         setPassword('')
-        setPassword2('')
+        router.push('/login')
       } catch (e){
         console.error(e)
       }
@@ -61,20 +58,9 @@ export default function Signup() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}></input>
                     </div>
-                    <div className="my-2">
-                        <input 
-                        type="password" 
-                        placeholder="re-type password"
-                        value={password2}
-                        onChange={(e) => setPassword2(e.target.value)}></input>
-                    </div>
                     <Button onClick={handleSignup} className="bg-[#5c5a7c] hover:bg-[#4a4865]">
                       Create Account
                       </Button>
-                </div>
-
-                <div>
-                  <button onClick={handleGoogle}>Sign up with google</button>
                 </div>
             </div>
 
