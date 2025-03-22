@@ -9,9 +9,7 @@ export default function About() {
     return (
       <div className="justify-center content-center">
       <section className="flex-col justify-center content-center bg-gradient-to-br from-[#c8c2f0] via-[#8a82c5] to-[#5c5a7c]">
-  return (
     <div>
-      <section className="relative bg-gradient-to-br from-[#c8c2f0] via-[#8a82c5] to-[#5c5a7c]">
         <div className="container mx-auto px-4 py-16 md:py-24">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
@@ -80,8 +78,8 @@ export default function About() {
             <Image src="/placeholder.svg?height=400&width=300" alt="Banana bundle" width={300} height={400} className="object-cover rounded-lg" />
           </div>
         </div>
+        <AccessibilityButton />
       </section>
-      <AccessibilityButton />
 
     </div>
   );
