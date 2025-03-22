@@ -15,7 +15,8 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({ fileName }) => {
   useEffect(() => {
     const fetchText = async () => {
       try {
-        const response = await fetch(`/voice-guides/${fileName}`);
+        const response = await fetch(`voice-guides/${fileName}`);
+        console.log("Got voice file at /voice-guides/" + fileName);
         const content = await response.text();
         setText(content);
       } catch (error) {
@@ -76,11 +77,7 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({ fileName }) => {
         )}
 
         {/* Mic icon button */}
-        <div
-          className="relative z-10 w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-lg hover:bg-blue-700"
-          onClick={handlePlay}
-          title="Voice Guide"
-        >
+        <div className="relative z-10 w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-lg hover:bg-blue-700" onClick={handlePlay} title="Voice Guide">
           🎙️
         </div>
       </div>
@@ -88,16 +85,10 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({ fileName }) => {
       {/* Optional: Pause and Stop buttons */}
       {isSpeaking && (
         <div className="flex gap-2 mt-2 justify-end">
-          <button
-            onClick={handlePause}
-            className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600"
-          >
+          <button onClick={handlePause} className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600">
             Pause
           </button>
-          <button
-            onClick={handleStop}
-            className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700"
-          >
+          <button onClick={handleStop} className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700">
             Stop
           </button>
         </div>
