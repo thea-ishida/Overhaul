@@ -6,6 +6,7 @@ import { useTextToSpeech } from "../../hooks/useTextToSpeech";
 
 export default function AccessibilityButton() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLargeFont, setIsLargeFont] = useState(false);
   const pathname = usePathname();
 
   let fileName = "home.txt";
@@ -15,6 +16,11 @@ export default function AccessibilityButton() {
   }
 
   const { handlePlay, isSpeaking, handleStop } = useTextToSpeech(fileName);
+
+  const toggleFontSize = () => {
+    setIsLargeFont(!isLargeFont);
+    document.body.classList.toggle("text-larger", !isLargeFont);
+  };
 
   return (
     <div className="fixed bottom-20 right-4 z-50">
