@@ -7,6 +7,7 @@ import WebcamComponent from "@/components/ui/webcam"
 import { useCallback, useState } from "react"
 import ProcessImage from "@/components/ImageProcessing/processImage"
 import { Button } from "@/components/ui/button"
+import AccessibilityButton from "@/components/ui/accessibility-button";
 
 export default function Checkout() {
   const itemPrices: { [key: string]: number } = {
