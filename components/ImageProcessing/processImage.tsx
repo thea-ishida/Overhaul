@@ -94,7 +94,7 @@ const ProcessImage: React.FC<ProcessImageProps> = ({ imageSrc, onItemDetected, o
 
     return (
         <div className="mt-4 text-center">
-            {isProcessing && <p className="text-lg text-blue-500">Scanning...</p>}
+            {isProcessing && <p className="text-xl text-black">Scanning...</p>}
             {detectedItem === "Cannot Detect Item" && (
                 <div className="flex items-center mb-2">
                 <div className="flex-1 text-3xl">{detectedItem}</div>

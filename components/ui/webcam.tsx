@@ -54,10 +54,10 @@ const WebcamComponent = ({ onCapture }: WebcamComponentProps) => {
         width={400}
         screenshotFormat="image/jpeg"
         videoConstraints={videoConstraints}
-        className="object-cover w-full h-full"
+        className="object-cover w-full h-full rounded-lg"
         mirrored={true}  
       />
-      <Button  onClick={capture} className="default text-black text-2xl">Scan Item</Button>
+      <Button  onClick={capture} className="default text-black text-2xl mt-4">Scan Item</Button>
     </div>
   );
 };
