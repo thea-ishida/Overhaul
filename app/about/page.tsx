@@ -92,6 +92,7 @@ export default function About() {
                   <ul className="list-disc">
                     <li>Git repository management (Merge conflicts and branch control)</li>
                     <li>Accessibility features (Text sizing)</li>
+                    <li>Mission statement page</li>
                     <li>Testing and code review of authentication and checkout pages</li>
                   </ul>
                 </div>
