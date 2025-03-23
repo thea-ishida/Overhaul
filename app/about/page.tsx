@@ -9,7 +9,7 @@ export default function About() {
   return (
     <div className="justify-center content-center">
 
-      <section className="h-screen bg-gradient-to-br from-[#c8c2f0] via-[#8a82c5] to-[#5c5a7c] text-black dark:bg-[#121212] dark:text-white transition-colors duration-300">
+      <section className="h-220 bg-gradient-to-br from-[#c8c2f0] via-[#8a82c5] to-[#5c5a7c] text-black dark:bg-[#121212] dark:text-white transition-colors duration-300">
         <div>
           <div className="container mx-auto px-4 py-16 md:py-24">
             <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -53,7 +53,8 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-center items-center">
+
+          <div className="my-5 flex flex-col justify-center items-center">
             <div className="grid grid-rows-1 grid-cols-1 container items-center mx-auto px-4 py-16 bg-[#c8c2f0] rounded-lg">
               <div className="grid grid-rows1 grid-cols-2">
                 <div className="flex flex-col justify-center items-center">
@@ -105,7 +106,7 @@ export default function About() {
           </div>
         </div>
         
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex my-5 flex-col justify-center items-center">
         <div className="grid grid-rows-1 grid-cols-1 container items-center mx-auto px-4 py-16 bg-[#c8c2f0] rounded-lg">
           <div className="grid grid-rows1 grid-cols-2">
             <div className="flex flex-col justify-center items-center">
