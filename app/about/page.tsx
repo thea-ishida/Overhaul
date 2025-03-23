@@ -5,10 +5,12 @@ import { Bot } from "lucide-react";
 import Link from "next/link";
 import AccessibilityButton from "@/components/ui/accessibility-button";
 
+
+
 export default function About() {
   return (
     <div className="justify-center content-center">
-      <section className="flex-col justify-center content-center bg-gradient-to-br from-[#c8c2f0] via-[#8a82c5] to-[#5c5a7c]">
+    <section className="bg-white text-black dark:bg-[#121212] dark:text-white transition-colors duration-300">
         <div>
           <div className="container mx-auto px-4 py-16 md:py-24">
             <div className="grid md:grid-cols-2 gap-8 items-center">

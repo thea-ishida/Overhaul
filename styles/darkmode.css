@@ -1,0 +1,22 @@
+/* styles/darkmode.css */
+
+body.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  body.dark-mode button {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: 1px solid #888;
+  }
+  
+  body.dark-mode .shadow-lg {
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+  }
+  

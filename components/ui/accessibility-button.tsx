@@ -6,6 +6,7 @@ import { useTextToSpeech } from "../../hooks/useTextToSpeech";
 
 export default function AccessibilityButton() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isLargeFont, setIsLargeFont] = useState(false);
   const pathname = usePathname();
 
@@ -15,6 +16,12 @@ export default function AccessibilityButton() {
     fileName = `${slug}.txt`;
   }
 
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    document.documentElement.classList.toggle("dark", !isDarkMode); // key change here
+  };
+  
+  
   const { handlePlay, isSpeaking, handleStop } = useTextToSpeech(fileName);
 
   const toggleFontSize = () => {
@@ -47,8 +54,12 @@ export default function AccessibilityButton() {
           >
             🔊 Voice Guide
           </button>
-          <button className="block w-full text-left p-2 bg-purple-100 hover:bg-blue-300">
-            Item 3
+
+          <button
+            onClick={toggleDarkMode}
+            className="block w-full text-left p-2 bg-purple-100 hover:bg-blue-300"
+          >
+            {isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
           </button>
           <button className="block w-full text-left p-2 bg-purple-100 hover:bg-blue-300 rounded-bl-lg rounded-br-lg">
             Item 4
