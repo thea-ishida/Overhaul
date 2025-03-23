@@ -34,7 +34,7 @@ const Magnifier: React.FC = () => {
         overflow: "hidden",
         border: "2px solid #000",
         boxShadow: "0 0 8px rgba(0,0,0,0.3)", // soft glow
-        backdropFilter: "blur(1px)", // optional subtle blur
+        // backdropFilter: "blur(1px)", // optional subtle blur
         backgroundColor: "rgba(255,255,255,0.05)", // translucent look
       }}
     >
