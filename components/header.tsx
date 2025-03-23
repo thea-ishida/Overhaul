@@ -1,15 +1,15 @@
-'use client'
+"use client";
 
-import Link from "next/link"
-import { ShoppingCart } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useAuthState } from "react-firebase-hooks/auth"
-import {auth} from "@/app/firebase/firebaseConfig"
-import { signOut } from "firebase/auth"
+import Link from "next/link";
+import { ShoppingCart } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "@/app/firebase/firebaseConfig";
+import { signOut } from "firebase/auth";
+import AccessibilityButton from "./ui/accessibility-button";
 
 export default function Header() {
-
-  const [user] = useAuthState(auth)
+  const [user] = useAuthState(auth);
 
   if (!user) {
     return (
@@ -50,7 +50,7 @@ export default function Header() {
           </Link>
         </div>
       </header>
-    )
+    );
   } else {
     return (
       <header className="bg-[#c8c2f0] py-3 px-6 flex items-center justify-between">
@@ -82,10 +82,11 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center space-x-4">
-            <Button variant="outline" onClick={() =>signOut(auth)} className="hover:bg-[#4a4865]">Log Out</Button>
+          <Button variant="outline" onClick={() => signOut(auth)} className="hover:bg-[#4a4865]">
+            Log Out
+          </Button>
         </div>
       </header>
-    )
+    );
   }
 }
-

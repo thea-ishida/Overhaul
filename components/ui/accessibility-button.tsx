@@ -4,6 +4,12 @@ import { useState } from "react";
 export default function AccessibilityButton() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLargeFont, setIsLargeFont] = useState(false);
+  const [isHighContrast, setIsHighContrast] = useState(false);
+
+  const toggleHighContrast = () => {
+    setIsHighContrast(!isHighContrast);
+    document.body.classList.toggle("high-contrast", !isHighContrast);
+  };
 
   const toggleAccessibilityOptions = () => {
     setIsOpen(!isOpen);
@@ -25,7 +31,9 @@ export default function AccessibilityButton() {
             {isLargeFont ? "Normal Font" : "Large Font"}
           </button>
           <button className="block w-full text-left p-2 bg-purple-100 hover:bg-blue-300 ">Item 2</button>
-          <button className="block w-full text-left p-2 bg-purple-100 hover:bg-blue-300 ">Item 3</button>
+          <button onClick={toggleHighContrast} className="block w-full text-left p-2 bg-purple-100 hover:bg-blue-300 ">
+            {isHighContrast ? "Normal Contrast" : "High Contrast"}
+          </button>
           <button className="block w-full text-left p-2 bg-purple-100 rounded-bl-lg rounded-br-lg hover:bg-blue-300  ">Item 4</button>
         </div>
       )}
