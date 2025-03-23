@@ -26,3 +26,7 @@ You can then run the website locally with:
 npm run dev
 ```
 
+## Demo Video
+
+https://github.com/user-attachments/assets/a278733e-7db1-4a60-bdbf-7f65c265e78c
+
