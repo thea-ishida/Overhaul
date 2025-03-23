@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import * as tf from "@tensorflow/tfjs";
+import * as cocoSsd from "@tensorflow-models/coco-ssd";
 
 interface ProcessImageProps {
     imageSrc: string | null;
@@ -15,9 +16,33 @@ interface ProcessImageProps {
 const ProcessImage: React.FC<ProcessImageProps> = ({ imageSrc, onItemDetected, onErrorMessage }) => {
     const [isProcessing, setIsProcessing] = useState(false);
     const [detectedItem, setDetectedItem] = useState<string | null>(null);
-    const modelPath = "/model.json";
+    const [classNames, setClassNames] = useState<string[]>([]);
+    const modelPath = "/models/model1/model.json";
+
+
+    useEffect(() => {
+        fetch("/models/model1/metadata.json")
+            .then((response) => response.json())
+            .then((data) => {
+                setClassNames(data.labels);
+            })
+            .catch((error) => {
+                console.error("Error loading metadata:", error);
+                onErrorMessage?.("Failed to load class names from metadata.");
+            });
+    }, [onErrorMessage]);
 
     const detectItem = async (imageSrc: string): Promise<string | null> => {
+
+        tf.setBackend("webgl")
+        .then(() => {
+          console.log("Backend set to WebGL");
+        })
+        .catch(() => {
+          tf.setBackend("cpu").then(() => {
+            console.log("Backend set to CPU");
+          });
+        });
         try {
             const image = new Image();
             image.src = imageSrc;
@@ -25,7 +50,9 @@ const ProcessImage: React.FC<ProcessImageProps> = ({ imageSrc, onItemDetected, o
                 image.onload = resolve;
             });
 
-            const model = await tf.loadLayersModel("/model/model.json");
+            await new Promise((resolve) => setTimeout(resolve, 1000));
+
+            const model = await tf.loadLayersModel(modelPath);
             const tensor = tf.browser.fromPixels(image)
                 .resizeNearestNeighbor([224, 224]) // Resize to model's expected input size
                 .toFloat() // Convert to float
@@ -34,10 +61,10 @@ const ProcessImage: React.FC<ProcessImageProps> = ({ imageSrc, onItemDetected, o
             const predictions = await model.predict(tensor) as tf.Tensor;
 
             const predictedClass = tf.argMax(predictions, 1).dataSync()[0];
-            const classNames = ["Redbull", "RubberDuck", "class3"]; // Replace with your class names
             const detectedItem = classNames[predictedClass];
+            const confidence = predictions.dataSync()[predictedClass] * 100;
 
-            return detectedItem;
+            return confidence >60 ? detectedItem  : "Cannot Detect Item";
         } catch (error) {
             console.error("Error detecting item:", error);
             onErrorMessage?.(`Failed to detect item: ${error instanceof Error ? error.message : "Unknown error"}`);
@@ -46,15 +73,7 @@ const ProcessImage: React.FC<ProcessImageProps> = ({ imageSrc, onItemDetected, o
     };
     
     useEffect(() => {
-        tf.setBackend("webgl")
-          .then(() => {
-            console.log("Backend set to WebGL");
-          })
-          .catch(() => {
-            tf.setBackend("cpu").then(() => {
-              console.log("Backend set to CPU");
-            });
-          });
+       
       }, []);
 
     useEffect(() => {
@@ -71,17 +90,27 @@ const ProcessImage: React.FC<ProcessImageProps> = ({ imageSrc, onItemDetected, o
                 })
                 .finally(() => setIsProcessing(false));
         }
-    }, [imageSrc, onItemDetected, onErrorMessage]);
+    }, [imageSrc]);
 
     return (
         <div className="mt-4 text-center">
-            <img src={imageSrc ?? undefined} alt="Captured item" className="object-cover w-full h-full" />
             {isProcessing && <p className="text-lg text-blue-500">Scanning...</p>}
-            {detectedItem && (
-                <p className="text-lg text-green-500">Detected: {detectedItem}</p>
+            {detectedItem === "Cannot Detect Item" && (
+                <div className="flex items-center mb-2">
+                <div className="flex-1 text-3xl">{detectedItem}</div>
+                <div className="h-6 w-6 bg-[#ffcccc] rounded-full flex items-center justify-center">X</div>
+              </div>
+                )}   
+            {detectedItem && detectedItem !== "Cannot Detect Item" && (
+                <div className="flex items-center mb-2">
+                <div className="flex-1 text-3xl">{detectedItem} -Detected</div>
+                <div className="h-6 w-6 bg-[#e0f7e0] rounded-full flex items-center justify-center">✓</div>
+              </div>
             )}
         </div>
     );
 };
+
+
 
 export default ProcessImage;
