@@ -54,6 +54,31 @@ export default function About() {
               </div>
             </div>
           </div>
+          <div className="flex flex-col justify-center items-center">
+            <div className="grid grid-rows-1 grid-cols-1 container items-center mx-auto px-4 py-16 bg-[#c8c2f0] rounded-lg">
+              <div className="grid grid-rows1 grid-cols-2">
+                <div className="flex flex-col justify-center items-center">
+                  <h1 className="justify-center text-3xl font-bold tracking-tight text-white">Evan Salmon</h1>
+                  <p className="items-center justify-center flex felx-col">My name is Evan. I am a second year computer science student at UWO. I enjoy Reading, hiking and programming.</p>
+
+                  <div className="my-5 items-center flex flex-col justify-center">
+                    <p className="my-2">My primary responsiblities have been:</p>
+
+                    <ul className="list-disc">
+                      <li>
+                        AI image detection using  <a className="text-orange-600">TensorFlow.js</a>
+                      </li>
+                      <li>Training a small machine learning model for image classification</li>
+                      <li>Handling the styling and functionality of the checkout page</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="justify-center items-center flex flex-col">
+                  <Image src="/headshot.jpg" alt="Evan" width={300} height={400} className="object-scale-down overflow-hidden rounded-lg drop-shadow-xl" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="container mx-auto px-4 py-16 bg-[#c8c2f0] rounded-lg">
