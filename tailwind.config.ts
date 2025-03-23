@@ -29,6 +29,7 @@ const config = {
         '5xl': '3em',
         '6xl': '4em',
         '7xl': '5em',
+        'larger': '1.25em',
       },
       colors: {
         border: "hsl(var(--border))",
