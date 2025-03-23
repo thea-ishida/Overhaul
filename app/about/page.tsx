@@ -4,7 +4,6 @@ import { ShoppingCart } from "lucide-react";
 import { Bot } from "lucide-react";
 import Link from "next/link";
 import AccessibilityButton from "@/components/ui/accessibility-button";
-import TextToSpeech from "../voice/TextToSpeech"; //import tts component
 
 export default function About() {
   return (
@@ -64,9 +63,6 @@ export default function About() {
         </div>
         <AccessibilityButton />
       </section>
-
-      {/* Add the floating TTS button at the bottom */}
-      <TextToSpeech fileName="about-us.txt" />
     </div>
   );
 }
