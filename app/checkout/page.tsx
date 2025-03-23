@@ -122,6 +122,7 @@ export default function Checkout() {
               </div>
             </div>
           </div>
+          <Button className="mt-8 text-lg default w-full">Pay Now</Button>
         </div>
       </div>
       <AccessibilityButton />

@@ -17,11 +17,11 @@ const ProcessImage: React.FC<ProcessImageProps> = ({ imageSrc, onItemDetected, o
     const [isProcessing, setIsProcessing] = useState(false);
     const [detectedItem, setDetectedItem] = useState<string | null>(null);
     const [classNames, setClassNames] = useState<string[]>([]);
-    const modelPath = "/models/model2/model.json";
+    const modelPath = "/models/model3/model.json";
 
 
     useEffect(() => {
-        fetch("/models/model2/metadata.json")
+        fetch("/models/model3/metadata.json")
             .then((response) => response.json())
             .then((data) => {
                 setClassNames(data.labels);
@@ -64,7 +64,7 @@ const ProcessImage: React.FC<ProcessImageProps> = ({ imageSrc, onItemDetected, o
             const detectedItem = classNames[predictedClass];
             const confidence = predictions.dataSync()[predictedClass] * 100;
 
-            return confidence >60 ? detectedItem  : "Cannot Detect Item";
+            return confidence > 50 && detectedItem !== "Unknown" ? detectedItem : "Cannot Detect Item";
         } catch (error) {
             console.error("Error detecting item:", error);
             onErrorMessage?.(`Failed to detect item: ${error instanceof Error ? error.message : "Unknown error"}`);
