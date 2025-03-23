@@ -38,8 +38,8 @@ export default function AccessibilityButton() {
               ⏹ Stop
             </button>
           )}
-          <button className="block w-full text-left p-2 bg-purple-100 hover:bg-blue-300">
-            Item 1
+          <button onClick={toggleFontSize} className="block w-full text-left p-2 bg-purple-100  hover:bg-blue-300 rounded-tl-lg rounded-tr-lg ">
+            {isLargeFont ? "Normal Font" : "Large Font"}
           </button>
           <button
             onClick={handlePlay}
