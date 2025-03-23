@@ -1,1 +1,11 @@
-Welcome to the checkout page.
+"Welcome to the Smart Checkout Scanner.
+
+To begin, place your items in view of the scanner. The system will automatically detect and add them to your cart.
+
+As you scan, you’ll see the item name, quantity, and price update in real time. Your total cost will be calculated instantly.
+
+If you like bananas, you might also enjoy our recommended products, shown below.
+
+When you're ready, review your cart and proceed with checkout.
+
+Thank you for using the Smart Checkout Scanner. Happy shopping!"
