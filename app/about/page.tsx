@@ -15,7 +15,7 @@ export default function About() {
           <div className="container mx-auto px-4 py-16 md:py-24">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="space-y-6">
-                <h1 className="text-6xl font-bold tracking-tight text-white">About Us</h1>
+                <h1 className="text-6xl font-bold tracking-tight text-purple">About Us</h1>
                 <h2 className="text-3xl font-medium">Shop Smarter, Checkout Faster!</h2>
                 <p className="text-lg max-w-md">
                   Our team is dedicated to making your checkout experience as easy as possible. We are passionate developers from the <a>University of Western Ontaio</a>.
