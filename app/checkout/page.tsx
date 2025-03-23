@@ -11,10 +11,10 @@ import AccessibilityButton from "@/components/ui/accessibility-button";
 
 export default function Checkout() {
   const itemPrices: { [key: string]: number } = {
-    apple: 0.99,
-    banana: 0.99,
-    Redbull: 2.99,
-    bread: 1.99,
+    Apple: 1.99,
+    banana:0.99,
+    RedBull: 4.99,
+    Bread: 3.99,
   }
 
   const [itemQuantities, setItemQuantities] = useState<{ [key: string]: number }>({

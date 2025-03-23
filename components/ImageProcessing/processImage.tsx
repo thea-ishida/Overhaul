@@ -17,11 +17,11 @@ const ProcessImage: React.FC<ProcessImageProps> = ({ imageSrc, onItemDetected, o
     const [isProcessing, setIsProcessing] = useState(false);
     const [detectedItem, setDetectedItem] = useState<string | null>(null);
     const [classNames, setClassNames] = useState<string[]>([]);
-    const modelPath = "/models/model1/model.json";
+    const modelPath = "/models/model2/model.json";
 
 
     useEffect(() => {
-        fetch("/models/model1/metadata.json")
+        fetch("/models/model2/metadata.json")
             .then((response) => response.json())
             .then((data) => {
                 setClassNames(data.labels);
