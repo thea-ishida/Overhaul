@@ -1,1 +1,3 @@
-We are a bunch of hackers
+Welcome to the about page! 
+
+Here you will find information about each of the founders of our project.
