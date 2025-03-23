@@ -17,6 +17,7 @@ npm audit fix --force
 npm install firebase --legacy-peer-deps
 npm install dotenv --legacy-peer-deps
 npm install react-firebase-hooks --legacy-peer-deps
+npm install @tensorflow/tfjs  
 ```
 
 You can then run the website locally with:
