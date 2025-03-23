@@ -13,7 +13,7 @@ export default function Header() {
 
   if (!user) {
     return (
-      <header className="bg-[#c8c2f0] py-3 px-6 flex items-center justify-between">
+      <header className="bg-[var(--header)] py-3 px-6 flex items-center justify-between">
         <div className="flex items-center">
           <Link href="/" className="text-2xl font-bold flex items-center">
             SMARTCART <ShoppingCart className="ml-2 h-6 w-6" />
@@ -46,14 +46,14 @@ export default function Header() {
             Log In
           </Link>
           <Link href={"/signup"}>
-            <Button className="bg-[#5c5a7c] hover:bg-[#4a4865]">SIGN UP</Button>
+            <Button className="bg-[var(--header-bg)] hover:bg-[var(--header-hoverbg)]">SIGN UP</Button>
           </Link>
         </div>
       </header>
     );
   } else {
     return (
-      <header className="bg-[#c8c2f0] py-3 px-6 flex items-center justify-between">
+      <header className="bg-[var(--header)] py-3 px-6 flex items-center justify-between">
         <div className="flex items-center">
           <Link href="/" className="text-2xl font-bold flex items-center">
             SMARTCART <ShoppingCart className="ml-2 h-6 w-6" />
@@ -82,7 +82,7 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <Button variant="outline" onClick={() => signOut(auth)} className="hover:bg-[#4a4865]">
+          <Button variant="outline" onClick={() => signOut(auth)} className="hover:bg-[var(--header-hoverbg)]">
             Log Out
           </Button>
         </div>
