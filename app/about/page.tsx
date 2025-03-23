@@ -8,7 +8,6 @@ import AccessibilityButton from "@/components/ui/accessibility-button";
 export default function About() {
   return (
     <div className="justify-center content-center">
-
       <section className="h-220 bg-gradient-to-br from-[#c8c2f0] via-[#8a82c5] to-[#5c5a7c] text-black dark:bg-[#121212] dark:text-white transition-colors duration-300">
         <div>
           <div className="container mx-auto px-4 py-16 md:py-24">
@@ -92,7 +91,9 @@ export default function About() {
                   <p className="my-2">My primary responsiblities have been:</p>
 
                   <ul className="list-disc">
-                    <li>Git repository management (Merge conflicts and branch control)</li>
+                    <li>
+                      <a className=" text-green-800 decoration-green-400">Git</a> repository management (Merge conflicts and branch control)
+                    </li>
                     <li>Accessibility features (Text sizing)</li>
                     <li>Mission statement page</li>
                     <li>Testing and code review of authentication and checkout pages</li>
@@ -105,33 +106,31 @@ export default function About() {
             </div>
           </div>
         </div>
-        
+
         <div className="flex my-5 flex-col justify-center items-center">
-        <div className="grid grid-rows-1 grid-cols-1 container items-center mx-auto px-4 py-16 bg-[#c8c2f0] rounded-lg">
-          <div className="grid grid-rows1 grid-cols-2">
-            <div className="flex flex-col justify-center items-center">
-              <h1 className="justify-center text-3xl font-bold tracking-tight text-white">Thea Ishida</h1>
-              <p className="items-center justify-center flex felx-col">Hey! I’m Thea — a third-year Computer Science student and varsity athlete on the Western Women’s Volleyball team 🏐. I’m passionate about problem solving, especially in collaborative, fast-paced environments like hackathons. When I’m not coding or competing, you can find me in the gym, geeking out over AI innovations, or staying up to date with the latest tech trends.</p>
-              <div className="my-5 items-center flex flex-col justify-center">
-                <p className="my-2">At this hackathon, I focused on building out core accessibility features to make our project more inclusive and user-friendly. My contributions included:</p>
-                <ul className="list-disc">
-                  <li>🗣️ Implementing the Voice Guide Tool using the Web Speech API</li>
-                  <li>🔍 Developing the Magnify Zoom feature for improved screen readability</li>
-                  <li>🌗 Adding a Dark Mode / Light Mode toggle</li>
-                  <li>🎨 Making design and layout enhancements through CSS for a cleaner UI</li>
-                </ul>
+          <div className="grid grid-rows-1 grid-cols-1 container items-center mx-auto px-4 py-16 bg-[#c8c2f0] rounded-lg">
+            <div className="grid grid-rows1 grid-cols-2">
+              <div className="flex flex-col justify-center items-center">
+                <h1 className="justify-center text-3xl font-bold tracking-tight text-white">Thea Ishida</h1>
+                <p className="items-center justify-center flex felx-col">Hey! I’m Thea — a third-year Computer Science student and varsity athlete on the Western Women’s Volleyball team 🏐. I’m passionate about problem solving, especially in collaborative, fast-paced environments like hackathons. When I’m not coding or competing, you can find me in the gym, geeking out over AI innovations, or staying up to date with the latest tech trends.</p>
+                <div className="my-5 items-center flex flex-col justify-center">
+                  <p className="my-2">At this hackathon, I focused on building out core accessibility features to make our project more inclusive and user-friendly. My contributions included:</p>
+                  <ul className="list-disc">
+                    <li>🗣️ Implementing the Voice Guide Tool using the Web Speech API</li>
+                    <li>🔍 Developing the Magnify Zoom feature for improved screen readability</li>
+                    <li>🌗 Adding a Dark Mode / Light Mode toggle</li>
+                    <li>🎨 Making design and layout enhancements through CSS for a cleaner UI</li>
+                  </ul>
+                </div>
               </div>
-            </div>
-            <div className="justify-center items-center flex flex-col">
-              <Image src="/Thea.jpg" alt="Thea" width={300} height={400} className="object-scale-down overflow-hidden rounded-lg drop-shadow-xl" />
+              <div className="justify-center items-center flex flex-col">
+                <Image src="/Thea.jpg" alt="Thea" width={300} height={400} className="object-scale-down overflow-hidden rounded-lg drop-shadow-xl" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    
 
-    <AccessibilityButton />
-
+        <AccessibilityButton />
       </section>
     </div>
   );
