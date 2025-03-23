@@ -50,7 +50,7 @@ export default function Home() {
                         <div className="h-6 w-6 bg-[#e0f7e0] rounded-full flex items-center justify-center">✓</div>
                       </div>
                       <div className="flex-1 relative">
-                        <Image src="/placeholder.svg?height=400&width=300" alt="Banana bundle" width={300} height={400} className="object-cover rounded-lg" />
+                        <Image src="/bannanna.jpeg" alt="Banana bundle" width={300} height={400} className="object-cover rounded-lg" />
                         <div className="absolute bottom-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-sm">scanning...</div>
                       </div>
                     </div>
